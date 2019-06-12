@@ -4,3 +4,17 @@ export function changeZip(zip) {
     value:zip
   }
 }
+
+export function addCurrentWeather(weather) {
+  return {
+    type:"ADD_CURRENTWEATHER",
+    value:weather
+  }
+}
+
+export function addForecastWeather(weather) {
+  return {
+    type:"ADD_FORECASTWEATHER",
+    value:weather
+  }
+}
