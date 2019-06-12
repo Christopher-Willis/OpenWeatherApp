@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 function currentWeather(state={}, action){
   if(action.type === "ADD_CURRENTWEATHER"){
-    return [...state,...action.value]
+    return action.value
   }
   return state;
 }
@@ -10,7 +10,7 @@ function currentWeather(state={}, action){
 
 function forecastWeather(state={}, action){
   if(action.type === "ADD_FORECASTWEATHER"){
-    return [...state,...action.value]
+    return action.value
   }
   return state;
 }   
