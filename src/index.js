@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "typeface-roboto";
+//could also import via css link, this way is in theory, fast to load page
 import { Provider } from 'react-redux'
 import store from "./store"
 

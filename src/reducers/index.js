@@ -5,7 +5,8 @@ function currentWeather(state=[], action){
     return [...state,...action.value]
   }
   return state;
-}   
+}
+//storing the entire openweather object, components will pretify it   
 
 function forecastWeather(state=[], action){
   if(action.type === "ADD_FORECASTWEATHER"){
@@ -13,6 +14,7 @@ function forecastWeather(state=[], action){
   }
   return state;
 }   
+//storing the entire openweather object, components will pretify it   
 
 function theme(state="",action){
   if(action.type === "CHANGE_ELEMENTISOTOPE"){
@@ -20,6 +22,7 @@ function theme(state="",action){
   }
   return state
 }
+//eventual theme object for stylized components
 
 const reducers = combineReducers({
   currentWeather,forecastWeather,theme
