@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './containers/appContainer.js';
 import * as serviceWorker from './serviceWorker';
 import "typeface-roboto";
 //could also import via css link, this way is, in theory, fast to load page
