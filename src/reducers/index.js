@@ -24,7 +24,7 @@ function theme(state=0,action){
 }
 //eventual theme object for stylized components
 
-function zipcode(state=0,action){
+function zipcode(state="",action){
   if(action.type === "CHANGE_ZIPCODE"){
     return action.value
   }
@@ -32,7 +32,7 @@ function zipcode(state=0,action){
 }
 
 const reducers = combineReducers({
-  currentWeather,forecastWeather,theme
+  currentWeather,forecastWeather,theme,zipcode
 })
 
 export default reducers;
