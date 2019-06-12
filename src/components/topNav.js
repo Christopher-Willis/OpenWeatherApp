@@ -73,8 +73,26 @@ const styles = theme => ({
 class PrimarySearchAppBar extends React.Component {
 
   enterPressed = (e) => {
+    //this hack, this is bad code! I forgot how to bind correctly and will fix when I get around to it
+    var that = this;
     if (e.key === 'Enter') {
-      console.log('Enter key pressed');
+      //fetch for current data
+      console.log()
+      fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${this.props.zip},us&appid=ce56b921ff906a7678e66938677bff2e`)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(currentWeatherJson) {
+          that.props.setCurrent(currentWeatherJson)
+        });
+        
+      fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${this.props.zip},us&appid=ce56b921ff906a7678e66938677bff2e`)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(currentWeatherJson) {
+          that.props.setForecast(currentWeatherJson)
+        });
     }    
   }
 
