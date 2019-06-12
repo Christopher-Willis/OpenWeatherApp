@@ -1,11 +1,13 @@
 import topNav from "../components/topNav"
 import { connect } from 'react-redux';
-import {changeZip} from "../actions"
+import {changeZip,addCurrentWeather,addForecastWeather} from "../actions"
 
 
 
 const mapDispatchToProps = {
   setZip:changeZip,
+  setCurrent:addCurrentWeather,
+  setForecast:addForecastWeather,
 }
 
 function mapStateToProps(state){
