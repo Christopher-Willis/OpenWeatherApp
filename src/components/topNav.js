@@ -68,58 +68,50 @@ const styles = theme => ({
       width: 200,
     },
   },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
 });
 
 class PrimarySearchAppBar extends React.Component {
-  state = {
-    anchorEl: null,
-    mobileMoreAnchorEl: null,
-  };
 
-  handleProfileMenuOpen = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+  enterPressed = (e) => {
+    if (e.key === 'Enter') {
+      console.log('Enter key pressed');
+    }    
+  }
 
-  handleMenuClose = () => {
-    this.setState({ anchorEl: null });
-    this.handleMobileMenuClose();
-  };
+  changeText = (e) => {
+    
+    if(this.props.zip.length < 5){
+      this.props.setZip(e.target.value)
+    }
+    else{
+      this.props.setZip(e.target.value.slice(0,5))
+    }
+  }
 
-  handleMobileMenuOpen = event => {
-    this.setState({ mobileMoreAnchorEl: event.currentTarget });
-  };
 
-  handleMobileMenuClose = () => {
-    this.setState({ mobileMoreAnchorEl: null });
-  };
 
   render() {
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
+
+
+
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              Find Weather by Zipcode:
+              Find Weather by Zip Code:
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <InputBase
+                autoFocus={true}
+                value = {this.props.zip} 
+                onChange={(e=>this.changeText(e))}
+                onKeyPress={(e)=>this.enterPressed(e)}
+                type="number"
                 placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,
