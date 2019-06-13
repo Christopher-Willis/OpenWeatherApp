@@ -2,13 +2,16 @@
   text-align: center;
 }
 
-.weather-container, .forecast-container {
+.weather-container {
   margin:2em;
 }
 
 .forecast-container  {
+  margin-top: 2em;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .App-logo {

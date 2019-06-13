@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth:120,
+    minWidth:100
     // backgroundColor:"#212121"
   },
   media: {
