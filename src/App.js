@@ -30,7 +30,9 @@ class App extends React.Component {
     conditionalRender=
     <div className="weather-container">
       <CurrentWeather/>
-      <ForecastWeather/>
+      <div className="forecast-container">
+        <ForecastWeather/>
+      </div>
     </div>
   }
   // this is ugly, I hate it, I want to switch to routes as soon as I can! The night is young!

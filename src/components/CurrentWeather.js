@@ -20,7 +20,7 @@ const kelvinToF = (number) =>{
   return ((number - 273.15) * 9/5) + 32
 }
 
-export default function RecipeReviewCard(props) {
+export default function CurrentWeather(props) {
   const classes = useStyles();
   // const timeOfReport = new Date(0)
   // timeOfReport.setUTCSeconds(props.current.dt)
