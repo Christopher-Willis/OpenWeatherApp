@@ -11,10 +11,6 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     // backgroundColor:"#212121"
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
   avatar: {
     backgroundColor: "#9CCC65",
   },
@@ -24,6 +20,15 @@ const kelvinToF = (number) =>{
   return ((number - 273.15) * 9/5) + 32
 }
 
+const dayOfTheWeek = {
+  0:"Sunday",
+  1:"Monday",
+  2:"Tuesday",
+  3:"Wednesday",
+  4:"Thursday",
+  5:"Friday",
+  6:"Saturday"
+}
 
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
