@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./containers/topNavContainer"
+import CurrentWeather from "./components/CurrentWeather"
+import ForecastWeather from "./components/ForecastWeather"
 
 class App extends React.Component {
 
@@ -26,11 +28,16 @@ class App extends React.Component {
     </p>
   }else{
     conditionalRender=
-    <p>
-      {this.props.current.weather[0].description}
-    </p>
+    <div className="weather-container">
+      <CurrentWeather/>
+      <ForecastWeather/>
+    </div>
   }
-
+  // this is ugly, I hate it, I want to switch to routes as soon as I can! The night is young!
+  // also, this is a horrible way to do error messages, would be super better if 
+  // I was logging error messages more generally then displaying the message. 
+  // I know how to do that, but might not have time. Id likely just pop it in an array
+  // then propagate some messages on the form via some kinda of map/error component
 
   return (
     <div className="App">
