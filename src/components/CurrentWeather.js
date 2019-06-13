@@ -20,20 +20,10 @@ const kelvinToF = (number) =>{
   return ((number - 273.15) * 9/5) + 32
 }
 
-const dayOfTheWeek = {
-  0:"Sunday",
-  1:"Monday",
-  2:"Tuesday",
-  3:"Wednesday",
-  4:"Thursday",
-  5:"Friday",
-  6:"Saturday"
-}
-
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
-  const timeOfReport = new Date(0)
-  timeOfReport.setUTCSeconds(props.current.dt)
+  // const timeOfReport = new Date(0)
+  // timeOfReport.setUTCSeconds(props.current.dt)
   const iconPicture = `http://openweathermap.org/img/w/${props.current.weather[0].icon}.png`
   return (
     <Card className={classes.card} >
