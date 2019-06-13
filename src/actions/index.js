@@ -18,3 +18,9 @@ export function addForecastWeather(weather) {
     value:weather
   }
 }
+
+export function toggleTheme(){
+  return {
+    type:"CHANGE_THEME",
+  }
+}

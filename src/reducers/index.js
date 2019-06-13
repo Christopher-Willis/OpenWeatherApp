@@ -18,7 +18,12 @@ function forecastWeather(state={}, action){
 
 function theme(state=0,action){
   if(action.type === "CHANGE_THEME"){
-    return action.value
+    if(state===0){
+      return 1
+    }else{
+      return 0
+    }
+
   }
   return state
 }

@@ -31,6 +31,8 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    colorTextPrimary:"#ffffff",
+    colorTextSecondary:"#000000",	
   },
   search: {
     position: 'relative',
@@ -55,9 +57,9 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    colorSecondary:"#000000",
   },
   inputRoot: {
-    color: 'inherit',
     width: '100%',
   },
   inputInput: {
@@ -74,6 +76,7 @@ const styles = theme => ({
 });
 
 class TopNav extends React.Component {
+
 
   enterPressed = (e) => {
     //this hack, this is bad code! I forgot how to bind correctly and will fix when I get around to it
@@ -109,23 +112,23 @@ class TopNav extends React.Component {
     }
   }
 
+  darkToggle = ()=> {
+    this.props.toggleTheme()
+  }
 
 
   render() {
-    const { classes } = this.props;
-
-
-
+    const { classes } = this.props;    
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+            <Typography className={classes.title} variant="h6" color={this.props.theme===0 ? "inherit" : "textSecondary"} noWrap>
               Find Weather by Zip Code:
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <SearchIcon />
+                <SearchIcon color={this.props.theme===0 ? "inherit" : "primary"}/>
               </div>
               <InputBase
                 autoFocus={true}
@@ -137,12 +140,13 @@ class TopNav extends React.Component {
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
+
                 }}
               />
             </div>
             <div className={classes.grow} />
             <div >
-              <IconButton color="inherit">
+              <IconButton onClick={()=>this.darkToggle()} color={this.props.theme===0 ? "inherit" : "default"}>
                 <BrightnessHigh />
               </IconButton>
             </div>
