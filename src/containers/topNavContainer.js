@@ -1,4 +1,4 @@
-import topNav from "../components/topNav"
+import topNav from "../components/TopNav"
 import { connect } from 'react-redux';
 import {changeZip,addCurrentWeather,addForecastWeather} from "../actions"
 
