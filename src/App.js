@@ -26,7 +26,7 @@ class App extends React.Component {
     <p>
       Enter Zip Code and press Enter
     </p>
-  }else if(this.props.current.cod !== 200){
+  }else if(this.props.current.cod !== 200 && this.props.forecast.cod !== 200){
     conditionalRender = 
     <p>
       Invalid Zip Code, try again
