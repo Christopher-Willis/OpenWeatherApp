@@ -27,6 +27,10 @@ const kelvinToF = (number) =>{
 
 
 export default function ForecastWeather(props) {
+  const theme = {
+    backgroundColor:              props.theme===0? "#ffffff" : "#000000",
+    colorPrimary:                 props.theme===0? "#000000" : "#ffffff",
+  }
   const classes = useStyles();
   const noonForecast = props.forecast.list.reduce((accumulator,weatherDay,index) => {
       if(weatherDay.dt_txt.includes("12:00:00")){
@@ -43,14 +47,14 @@ export default function ForecastWeather(props) {
     noonForecast.map((dailyWeather,index)=> {
       return (
         
-        <Card className={classes.card} >
+        <Card className={classes.card} style={{backgroundColor:theme.backgroundColor,color:theme.colorPrimary}} >
         <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>
               <img src={`http://openweathermap.org/img/w/${dailyWeather.weather[0].icon}.png`} alt="weather icon" height="42" width="42"/>
             </Avatar>
           }
-          titleTypographyProps={{variant:'h7' }}
+          titleTypographyProps={{variant:'h6' }}
           title={parseInt(kelvinToF(parseInt(dailyWeather.main.temp)))+"°F"}
         />
         </Card>

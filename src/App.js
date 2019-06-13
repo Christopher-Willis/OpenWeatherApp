@@ -10,6 +10,11 @@ class App extends React.Component {
 
   render() {
 
+  const theme = {
+    backgroundColor: this.props.theme===0? "#ffffff" : "#000000",
+    color:           this.props.theme===0? "#000000" : "#ffffff "
+  }
+
 
   // will change to react router if I have time, conditional rendering is sub optimal
   // given time I would like to have routes with /(zipcode) properly send
@@ -28,7 +33,7 @@ class App extends React.Component {
     </p>
   }else{
     conditionalRender=
-    <div className="weather-container">
+    <div className="weather-container" >
       <CurrentWeather/>
       <div className="forecast-container">
         <ForecastWeather/>
@@ -42,7 +47,7 @@ class App extends React.Component {
   // then propagate some messages on the form via some kinda of map/error component
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: theme.backgroundColor,color:theme.color}}>
       <header className="App-header">
         <Navbar/>
       </header>

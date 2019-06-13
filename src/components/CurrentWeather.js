@@ -21,12 +21,17 @@ const kelvinToF = (number) =>{
 }
 
 export default function CurrentWeather(props) {
+
+  const theme = {
+    backgroundColor:              props.theme===0? "#ffffff" : "#000000",
+    colorPrimary:                 props.theme===0? "#000000" : "#ffffff",
+  }
   const classes = useStyles();
   // const timeOfReport = new Date(0)
   // timeOfReport.setUTCSeconds(props.current.dt)
   const iconPicture = `http://openweathermap.org/img/w/${props.current.weather[0].icon}.png`
   return (
-    <Card className={classes.card} >
+    <Card className={classes.card} style={{backgroundColor:theme.backgroundColor,color:theme.colorPrimary}}>
       <CardHeader
         avatar={
           <Avatar aria-label="Recipe" className={classes.avatar}>
@@ -36,10 +41,10 @@ export default function CurrentWeather(props) {
         titleTypographyProps={{variant:'h4' }}
         title={parseInt(kelvinToF(parseInt(props.current.main.temp)))+"°F"}
         subheader={props.current.weather[0].description}
-        subheaderTypographyProps={{variant:'h6' }}
+        subheaderTypographyProps={{variant:'h6',color:theme.colorPrimary }}
       />
       <CardContent>
-        <Typography  variant="body1" color="textPrimary" component="p">
+        <Typography  variant="body1" style={{color:theme.colorPrimary}} component="p">
           Hi/Lo: {parseInt(kelvinToF(parseInt(props.current.main.temp_max)))+"°F/"+parseInt(kelvinToF(parseInt(props.current.main.temp_min)))+"°F"}
         </Typography>
          {/* <Typography  variant="body1" color="textPrimary" component="p">
