@@ -10,6 +10,9 @@ import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import BrightnessHigh from '@material-ui/icons/BrightnessHigh';
 
+// not sure how I feel about stylized components but it is getting the job done for now
+// will change if it becomes problematic in controller dark theme mode
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -70,7 +73,7 @@ const styles = theme => ({
   },
 });
 
-class PrimarySearchAppBar extends React.Component {
+class TopNav extends React.Component {
 
   enterPressed = (e) => {
     //this hack, this is bad code! I forgot how to bind correctly and will fix when I get around to it
@@ -150,8 +153,8 @@ class PrimarySearchAppBar extends React.Component {
   }
 }
 
-PrimarySearchAppBar.propTypes = {
+TopNav.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PrimarySearchAppBar);
+export default withStyles(styles)(TopNav);
