@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./containers/topNavContainer"
-import CurrentWeather from "./components/CurrentWeather"
-import ForecastWeather from "./components/ForecastWeather"
+import CurrentWeather from "./containers/currentWeatherContainer"
+import ForecastWeather from "./containers/forecastWeatherContainer"
 
 class App extends React.Component {
 
