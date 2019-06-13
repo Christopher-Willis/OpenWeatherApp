@@ -2,9 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -47,7 +45,7 @@ export default function ForecastWeather(props) {
     noonForecast.map((dailyWeather,index)=> {
       return (
         
-        <Card className={classes.card} style={{backgroundColor:theme.backgroundColor,color:theme.colorPrimary}} >
+        <Card key={index} className={classes.card} style={{backgroundColor:theme.backgroundColor,color:theme.colorPrimary}} >
         <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>
