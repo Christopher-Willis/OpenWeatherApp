@@ -2,6 +2,9 @@
 
 Fixed after due date: There was a bug that I didn't catch for conditional rendering failing to catch empty arrays being passed to the Forecast component. Didn't catch during development because running the same fetch call repeatedly from local host doesn't trigger it, only triggered on the first several attempts of initially opening it. 
 
+
+Forgot to implement "temperature at noon" for weekly forecast vs just fist temperature found
+
 Will be utilizing https://openweathermap.org/api to make a simple weather app
 
 Minimum Viable product finished at 3PM. 
