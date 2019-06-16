@@ -29,15 +29,18 @@ export default function ForecastWeather(props) {
     backgroundColor:              props.theme===0? "#ffffff" : "#000000",
     colorPrimary:                 props.theme===0? "#000000" : "#ffffff",
   }
+  console.log(props.forecast)
   const classes = useStyles();
-  const noonForecast = props.forecast.list.reduce((accumulator,weatherDay,index) => {
+  let noonForecast = []
+  if(props.forecast.list){
+      noonForecast = props.forecast.list.reduce((accumulator,weatherDay,index) => {
       if(weatherDay.dt_txt.includes("12:00:00")){
         accumulator.push(weatherDay)
         return accumulator
       }
       return accumulator
     },[] )
-  
+  }
   // const timeOfReport = new Date(0)
   // timeOfReport.setUTCSeconds(props.current.dt)
   // const iconPicture = `http://openweathermap.org/img/w/${props.current.weather[0].icon}.png`
