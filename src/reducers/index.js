@@ -29,7 +29,7 @@ function theme(state=0,action){
 }
 //eventual theme object for stylized components
 
-function zipcode(state="78704",action){
+function zipcode(state="",action){
   if(action.type === "CHANGE_ZIPCODE"){
     return action.value
   }
