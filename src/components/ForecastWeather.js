@@ -23,18 +23,27 @@ const kelvinToF = (number) =>{
   return ((number - 273.15) * 9/5) + 32
 }
 
+const utcTimeToHour = (numberDate) => {
+  // changes utc time to hours time so I can test for noon in each timezone vs just
+  // 1200 UTC 
+  var adjustedTimeHours = new Date(0); // The 0 there is the key, which sets the date to the epoch
+  adjustedTimeHours.setUTCSeconds(numberDate);
+  return adjustedTimeHours.getHours()
+}
 
 export default function ForecastWeather(props) {
   const theme = {
     backgroundColor:              props.theme===0? "#ffffff" : "#000000",
     colorPrimary:                 props.theme===0? "#000000" : "#ffffff",
   }
-  console.log(props.forecast)
   const classes = useStyles();
   let noonForecast = []
   if(props.forecast.list){
       noonForecast = props.forecast.list.reduce((accumulator,weatherDay,index) => {
-      if(weatherDay.dt_txt.includes("12:00:00")){
+      if(accumulator.length === 0 && utcTimeToHour(weatherDay.dt) >12 && utcTimeToHour(weatherDay.dt)>9){
+        accumulator.push(weatherDay)
+        return accumulator
+      }else if (accumulator.length >0 && utcTimeToHour(accumulator[0].dt)===utcTimeToHour(weatherDay.dt)) {
         accumulator.push(weatherDay)
         return accumulator
       }
