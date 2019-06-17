@@ -40,7 +40,7 @@ export default function ForecastWeather(props) {
   let noonForecast = []
   if(props.forecast.list){
       noonForecast = props.forecast.list.reduce((accumulator,weatherDay,index) => {
-      if(accumulator.length === 0 && utcTimeToHour(weatherDay.dt) >12 && utcTimeToHour(weatherDay.dt)>9){
+      if(accumulator.length === 0 && utcTimeToHour(weatherDay.dt) <14 && utcTimeToHour(weatherDay.dt)>10){
         accumulator.push(weatherDay)
         return accumulator
       }else if (accumulator.length >0 && utcTimeToHour(accumulator[0].dt)===utcTimeToHour(weatherDay.dt)) {
